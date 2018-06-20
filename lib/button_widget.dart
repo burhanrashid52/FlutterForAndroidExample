@@ -146,14 +146,14 @@ class _ControllerState extends State<Controller> {
                 ],
               ),
             ),
-            preferredSize: Size(0.0, 180.0)),
+            preferredSize: new Size(0.0, 180.0)),
       ),
       body: new Container(
         color: Colors.yellowAccent,
         child: _isRow
             ? new RowWidget(
                 _mainAxisAlignment, _crossAxisAlignment, _mainAxisSize)
-            : ColumnWidget(
+            : new ColumnWidget(
                 _mainAxisAlignment, _crossAxisAlignment, _mainAxisSize),
       ),
     );

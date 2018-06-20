@@ -41,19 +41,36 @@ class ColumnWidget extends StatelessWidget {
 List<Widget> getWidgets() {
   List<Widget> widgets = new List<Widget>();
   widgets.add(new CircleAvatar(
-    minRadius: 25.0,
+    radius: 25.0,
     child: new Text("1"),
   ));
   widgets.add(new Padding(
     padding: const EdgeInsets.all(8.0),
     child: new CircleAvatar(
-      minRadius: 50.0,
+      radius: 50.0,
       child: new Text("2"),
     ),
   ));
   widgets.add(new CircleAvatar(
-    minRadius: 25.0,
+    radius: 25.0,
     child: new Text("3"),
+  ));
+  return widgets;
+}
+
+List<Widget> getIconWidgets() {
+  List<Widget> widgets = new List<Widget>();
+  widgets.add(new Icon(
+    Icons.access_time,
+    size: 50.0,
+  ));
+  widgets.add(new Icon(
+    Icons.pie_chart,
+    size: 100.0,
+  ));
+  widgets.add(new Icon(
+    Icons.email,
+    size: 50.0,
   ));
   return widgets;
 }
