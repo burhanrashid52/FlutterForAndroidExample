@@ -8,7 +8,7 @@ class RowWidget extends StatelessWidget {
   RowWidget(
       {this.mainAxisAlignment = MainAxisAlignment.start,
       this.crossAxisAlignment = CrossAxisAlignment.start,
-      this.mainAxisSize = MainAxisSize.max});
+      this.mainAxisSize = MainAxisSize.min});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ColumnWidget extends StatelessWidget {
   ColumnWidget(
       {this.mainAxisAlignment = MainAxisAlignment.start,
       this.crossAxisAlignment = CrossAxisAlignment.start,
-      this.mainAxisSize = MainAxisSize.max});
+      this.mainAxisSize = MainAxisSize.min});
 
   @override
   Widget build(BuildContext context) {
