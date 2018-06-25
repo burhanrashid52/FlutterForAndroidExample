@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: new Center(
         child: new Column(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -22,7 +23,8 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
                 color: Theme.of(context).accentColor,
-                child: new Text("Activity UI"),
+                child: new Text("Activity UI",
+                    style: new TextStyle(color: Colors.white)),
               ),
             ),
             Padding(
@@ -36,7 +38,8 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
                 color: Theme.of(context).accentColor,
-                child: new Text("LinearLayout"),
+                child: new Text("LinearLayout",
+                    style: new TextStyle(color: Colors.white)),
               ),
             )
           ],

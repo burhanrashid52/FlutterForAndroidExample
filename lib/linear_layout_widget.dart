@@ -4,21 +4,31 @@ import 'package:sample_flutter_app/row_column_example.dart';
 
 class LinearLayoutScreen extends StatefulWidget {
   @override
-  _LinearLayoutScreenState createState() => new _LinearLayoutScreenState();
+  _LinearLayoutScreenState createState() => new _LinearLayoutScreenState(true,
+      MainAxisAlignment.start, CrossAxisAlignment.start, MainAxisSize.min);
 }
 
 class _LinearLayoutScreenState extends State<LinearLayoutScreen> {
   Widget _rowColumnWidget = new RowWidget();
+  bool isRow;
+  MainAxisAlignment mainAxisAlignment;
+  CrossAxisAlignment crossAxisAlignment;
+  MainAxisSize mainAxisSize;
+
+  _LinearLayoutScreenState(this.isRow, this.mainAxisAlignment,
+      this.crossAxisAlignment, this.mainAxisSize);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         bottom: new PreferredSize(
-            child: new AttributeControllerWidget(attributeSelection: (isRow,
-                _mainAxisAlignment, _mainAxisSize, _crossAxisAlignment) {
+            child: new AttributeControllerWidget(
+                isRow, mainAxisAlignment, crossAxisAlignment, mainAxisSize,
+                attributeSelection: (_isRow, _mainAxisAlignment, _mainAxisSize,
+                    _crossAxisAlignment) {
               setState(() {
-                if (isRow) {
+                if (_isRow) {
                   _rowColumnWidget = new RowWidget(
                     mainAxisAlignment: _mainAxisAlignment,
                     mainAxisSize: _mainAxisSize,
@@ -31,6 +41,10 @@ class _LinearLayoutScreenState extends State<LinearLayoutScreen> {
                     crossAxisAlignment: _crossAxisAlignment,
                   );
                 }
+                isRow = _isRow;
+                mainAxisSize = _mainAxisSize;
+                mainAxisAlignment = _mainAxisAlignment;
+                crossAxisAlignment = _crossAxisAlignment;
               });
             }),
             preferredSize: new Size(0.0, 248.0)),

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class AttributeControllerWidget extends StatelessWidget {
   AttributeSelection attributeSelection;
-  bool _isRow = true;
-  MainAxisAlignment _mainAxisAlignment = MainAxisAlignment.start;
-  CrossAxisAlignment _crossAxisAlignment = CrossAxisAlignment.start;
-  MainAxisSize _mainAxisSize = MainAxisSize.min;
+  bool _isRow;
+  MainAxisAlignment _mainAxisAlignment;
+  CrossAxisAlignment _crossAxisAlignment;
+  MainAxisSize _mainAxisSize;
 
-  AttributeControllerWidget({this.attributeSelection});
+  AttributeControllerWidget(this._isRow, this._mainAxisAlignment,
+      this._crossAxisAlignment, this._mainAxisSize,
+      {this.attributeSelection});
 
   @override
   Widget build(BuildContext context) {
