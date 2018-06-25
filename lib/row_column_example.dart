@@ -1,39 +1,43 @@
 import 'package:flutter/material.dart';
 
 class RowWidget extends StatelessWidget {
-  MainAxisAlignment _mainAxisAlignment;
-  CrossAxisAlignment _crossAxisAlignment;
-  MainAxisSize _mainAxisSize;
+  MainAxisAlignment mainAxisAlignment;
+  CrossAxisAlignment crossAxisAlignment;
+  MainAxisSize mainAxisSize;
 
   RowWidget(
-      this._mainAxisAlignment, this._crossAxisAlignment, this._mainAxisSize);
+      {this.mainAxisAlignment = MainAxisAlignment.start,
+      this.crossAxisAlignment = CrossAxisAlignment.start,
+      this.mainAxisSize = MainAxisSize.max});
 
   @override
   Widget build(BuildContext context) {
     return new Row(
-      mainAxisAlignment: _mainAxisAlignment,
-      crossAxisAlignment: _crossAxisAlignment,
-      mainAxisSize: _mainAxisSize,
-      children: getWidgets(),
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment,
+      mainAxisSize: mainAxisSize,
+      children: getIconWidgets(),
     );
   }
 }
 
 class ColumnWidget extends StatelessWidget {
-  MainAxisAlignment _mainAxisAlignment;
-  CrossAxisAlignment _crossAxisAlignment;
-  MainAxisSize _mainAxisSize;
+  MainAxisAlignment mainAxisAlignment;
+  CrossAxisAlignment crossAxisAlignment;
+  MainAxisSize mainAxisSize;
 
   ColumnWidget(
-      this._mainAxisAlignment, this._crossAxisAlignment, this._mainAxisSize);
+      {this.mainAxisAlignment = MainAxisAlignment.start,
+      this.crossAxisAlignment = CrossAxisAlignment.start,
+      this.mainAxisSize = MainAxisSize.max});
 
   @override
   Widget build(BuildContext context) {
     return new Column(
-      mainAxisAlignment: _mainAxisAlignment,
-      crossAxisAlignment: _crossAxisAlignment,
-      mainAxisSize: _mainAxisSize,
-      children: getWidgets(),
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment,
+      mainAxisSize: mainAxisSize,
+      children: getIconWidgets(),
     );
   }
 }
