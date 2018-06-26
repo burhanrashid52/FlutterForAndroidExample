@@ -11,7 +11,7 @@ This is sample app for my blog series "Flutter For Android Developer" for Androi
 
 
 
-2. [How to design LinearLayout in Flutter ?]()
+2. [How to design LinearLayout in Flutter ?](https://medium.com/@burhanrashid52/flutter-for-android-developers-how-to-design-linearlayout-in-flutter-5d819c0ddf1a)
 
 ![](https://i.imgur.com/5vF2Fia.gif)
 
