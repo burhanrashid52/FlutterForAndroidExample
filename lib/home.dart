@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample_flutter_app/acivity_example.dart';
 import 'package:sample_flutter_app/linear_layout_widget.dart';
+import 'package:sample_flutter_app/frame_layout_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -39,6 +40,21 @@ class HomeScreen extends StatelessWidget {
                 },
                 color: Theme.of(context).accentColor,
                 child: new Text("LinearLayout",
+                    style: new TextStyle(color: Colors.white)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: new FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FrameLayoutScreen()),
+                  );
+                },
+                color: Theme.of(context).accentColor,
+                child: new Text("FrameLayout",
                     style: new TextStyle(color: Colors.white)),
               ),
             )
