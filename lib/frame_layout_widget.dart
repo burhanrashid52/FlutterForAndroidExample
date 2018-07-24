@@ -17,25 +17,32 @@ class _FrameLayoutScreenState extends State<FrameLayoutScreen> {
         child: Container(
           color: Colors.orange,
           child: Stack(
-            alignment: AlignmentDirectional.center,
+            alignment: AlignmentDirectional.topStart,
             children: <Widget>[
-              Container(
-                color: Colors.red,
-                width: 200.0,
-                height: 200.0,
+              Align(
+                alignment: AlignmentDirectional.topStart,
+                child: Container(
+                  color: Colors.red,
+                  width: 200.0,
+                  height: 200.0,
+                ),
               ),
               Align(
+                alignment: AlignmentDirectional.topEnd,
                 child: Container(
-                  color: Colors.blue,
+                  color: Colors.orange,
                   width: 100.0,
                   height: 100.0,
                 ),
               ),
-              Container(
-                color: Colors.green,
-                width: 50.0,
-                height: 50.0,
-              ),
+              Align(
+                alignment: AlignmentDirectional.bottomStart,
+                child: Container(
+                  color: Colors.green,
+                  width: 50.0,
+                  height: 50.0,
+                ),
+              )
             ],
           ),
         ),
