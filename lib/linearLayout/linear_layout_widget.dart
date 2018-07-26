@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sample_flutter_app/attribute_controller.dart';
-import 'package:sample_flutter_app/row_column_example.dart';
+import 'package:sample_flutter_app/linearLayout/linear_attribute_controller.dart';
+import 'package:sample_flutter_app/linearLayout/row_column_example.dart';
 
 class LinearLayoutScreen extends StatefulWidget {
   @override
@@ -23,7 +23,7 @@ class _LinearLayoutScreenState extends State<LinearLayoutScreen> {
     return new Scaffold(
       appBar: new AppBar(
         bottom: new PreferredSize(
-            child: new AttributeControllerWidget(
+            child: new LinearAttributeControllerWidget(
                 isRow, mainAxisAlignment, crossAxisAlignment, mainAxisSize,
                 attributeSelection: (_isRow, _mainAxisAlignment, _mainAxisSize,
                     _crossAxisAlignment) {

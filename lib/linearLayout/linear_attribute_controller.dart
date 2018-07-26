@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AttributeControllerWidget extends StatelessWidget {
+class LinearAttributeControllerWidget extends StatelessWidget {
   AttributeSelection attributeSelection;
   bool _isRow;
   MainAxisAlignment _mainAxisAlignment;
   CrossAxisAlignment _crossAxisAlignment;
   MainAxisSize _mainAxisSize;
 
-  AttributeControllerWidget(this._isRow, this._mainAxisAlignment,
+  LinearAttributeControllerWidget(this._isRow, this._mainAxisAlignment,
       this._crossAxisAlignment, this._mainAxisSize,
       {this.attributeSelection});
 

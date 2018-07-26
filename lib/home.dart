@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sample_flutter_app/acivity_example.dart';
-import 'package:sample_flutter_app/linear_layout_widget.dart';
-import 'package:sample_flutter_app/frame_layout_widget.dart';
+import 'package:sample_flutter_app/activity/acivity_example.dart';
+import 'package:sample_flutter_app/linearLayout/linear_layout_widget.dart';
+import 'package:sample_flutter_app/frameLayout/frame_layout_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
