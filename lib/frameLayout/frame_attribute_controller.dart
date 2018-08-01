@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class FrameAttributeControllerWidget extends StatefulWidget {
   final FrameAttributeSelection frameAttributeSelection;
+
   FrameAttributeControllerWidget({this.frameAttributeSelection});
+
   @override
   _FrameAttributeControllerWidgetState createState() =>
       _FrameAttributeControllerWidgetState();
@@ -29,15 +31,15 @@ class _FrameAttributeControllerWidgetState
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _buildGravityButton("TS", AlignmentDirectional.topStart),
-            _buildGravityButton("TC", AlignmentDirectional.topCenter),
-            _buildGravityButton("TE", AlignmentDirectional.topEnd),
-            _buildGravityButton("CS", AlignmentDirectional.centerStart),
-            _buildGravityButton("C", AlignmentDirectional.center),
-            _buildGravityButton("CE", AlignmentDirectional.centerEnd),
-            _buildGravityButton("BE", AlignmentDirectional.bottomStart),
-            _buildGravityButton("BC", AlignmentDirectional.bottomCenter),
-            _buildGravityButton("BE", AlignmentDirectional.bottomEnd),
+            _buildGravityButton("TS", AlignmentDirectional.topStart, false),
+            _buildGravityButton("TC", AlignmentDirectional.topCenter, false),
+            _buildGravityButton("TE", AlignmentDirectional.topEnd, false),
+            _buildGravityButton("CS", AlignmentDirectional.centerStart, false),
+            _buildGravityButton("C", AlignmentDirectional.center, false),
+            _buildGravityButton("CE", AlignmentDirectional.centerEnd, false),
+            _buildGravityButton("BE", AlignmentDirectional.bottomStart, false),
+            _buildGravityButton("BC", AlignmentDirectional.bottomCenter, false),
+            _buildGravityButton("BE", AlignmentDirectional.bottomEnd, false),
           ],
         ),
         Divider(
@@ -56,28 +58,29 @@ class _FrameAttributeControllerWidgetState
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _buildGravityButton("TS", AlignmentDirectional.topStart),
-            _buildGravityButton("TC", AlignmentDirectional.topCenter),
-            _buildGravityButton("TE", AlignmentDirectional.topEnd),
-            _buildGravityButton("CS", AlignmentDirectional.centerStart),
-            _buildGravityButton("C", AlignmentDirectional.center),
-            _buildGravityButton("CE", AlignmentDirectional.centerEnd),
-            _buildGravityButton("BE", AlignmentDirectional.bottomStart),
-            _buildGravityButton("BC", AlignmentDirectional.bottomCenter),
-            _buildGravityButton("BE", AlignmentDirectional.bottomEnd),
+            _buildGravityButton("TS", AlignmentDirectional.topStart, true),
+            _buildGravityButton("TC", AlignmentDirectional.topCenter, true),
+            _buildGravityButton("TE", AlignmentDirectional.topEnd, true),
+            _buildGravityButton("CS", AlignmentDirectional.centerStart, true),
+            _buildGravityButton("C", AlignmentDirectional.center, true),
+            _buildGravityButton("CE", AlignmentDirectional.centerEnd, true),
+            _buildGravityButton("BE", AlignmentDirectional.bottomStart, true),
+            _buildGravityButton("BC", AlignmentDirectional.bottomCenter, true),
+            _buildGravityButton("BE", AlignmentDirectional.bottomEnd, true),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildGravityButton(String buttonText, AlignmentGeometry gravity) {
+  Widget _buildGravityButton(
+      String buttonText, AlignmentGeometry gravity, bool isAligned) {
     return GestureDetector(
         onTap: () {
           setState(() {
             _alignmentGeometry = gravity;
           });
-          widget.frameAttributeSelection(gravity);
+          widget.frameAttributeSelection(gravity, isAligned);
         },
         child: Padding(
           padding: EdgeInsets.all(10.0),
@@ -92,4 +95,4 @@ class _FrameAttributeControllerWidgetState
   }
 }
 
-typedef void FrameAttributeSelection(AlignmentGeometry gravity);
+typedef void FrameAttributeSelection(AlignmentGeometry gravity, bool isAligned);

@@ -4,6 +4,7 @@ import 'frame_attribute_controller.dart';
 
 class FrameLayoutScreen extends StatefulWidget {
   AlignmentGeometry alignmentGeometry = AlignmentDirectional.center;
+  bool isAligned = false;
 
   @override
   _FrameLayoutScreenState createState() => _FrameLayoutScreenState();
@@ -17,9 +18,11 @@ class _FrameLayoutScreenState extends State<FrameLayoutScreen> {
           title: Text("FrameLayout"),
           bottom: PreferredSize(
               child: FrameAttributeControllerWidget(
-                frameAttributeSelection: (AlignmentGeometry direction) {
+                frameAttributeSelection:
+                    (AlignmentGeometry direction, bool isAligned) {
                   setState(() {
                     widget.alignmentGeometry = direction;
+                    widget.isAligned = isAligned;
                   });
                 },
               ),
@@ -28,7 +31,9 @@ class _FrameLayoutScreenState extends State<FrameLayoutScreen> {
         body: Container(
           color: Colors.grey,
           constraints: BoxConstraints.expand(),
-          child: StackWidgets(widget.alignmentGeometry),
+          child: widget.isAligned
+              ? StackAlignWidgets(widget.alignmentGeometry)
+              : StackWidgets(widget.alignmentGeometry),
         ));
   }
 }
