@@ -12,9 +12,39 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      theme: new ThemeData(accentColor: Colors.pinkAccent),
-      debugShowCheckedModeBanner: false,
-      home: new HomeScreen(),
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("FrameLayout"),
+        ),
+        body: new Container(
+          color: Colors.yellowAccent,
+          child: new Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Container(
+                height: 200.0,
+                width: 200.0,
+                color: Colors.red,
+              ),
+              Container(
+                height: 150.0,
+                width: 150.0,
+                color: Colors.blue,
+              ),
+              Container(
+                height: 100.0,
+                width: 100.0,
+                color: Colors.green,
+              ),
+              Container(
+                height: 50.0,
+                width: 50.0,
+                color: Colors.yellow,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
