@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class FrameAttributeControllerWidget extends StatefulWidget {
   final FrameAttributeSelection frameAttributeSelection;
+  final int spanCount = 3;
+  final double titlePadding = 12.0;
+  final double titleFontSize = 14.0;
 
   FrameAttributeControllerWidget({this.frameAttributeSelection});
 
@@ -12,65 +15,62 @@ class FrameAttributeControllerWidget extends StatefulWidget {
 
 class _FrameAttributeControllerWidgetState
     extends State<FrameAttributeControllerWidget> {
-  AlignmentGeometry _alignmentGeometry = AlignmentDirectional.center;
+  AlignmentGeometry _alignmentGravity = AlignmentDirectional.center;
+  AlignmentGeometry _alignmentGravityLayout = AlignmentDirectional.center;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(4.0),
-          child: Text(
-            "Gravity",
-            style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
+        Expanded(
+          flex: 5,
+          child: Column(
+            children: <Widget>[
+              _buildTitleWidget("android:gravity"),
+              _buildGridView(false)
+            ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildGravityButton("TS", AlignmentDirectional.topStart, false),
-            _buildGravityButton("TC", AlignmentDirectional.topCenter, false),
-            _buildGravityButton("TE", AlignmentDirectional.topEnd, false),
-            _buildGravityButton("CS", AlignmentDirectional.centerStart, false),
-            _buildGravityButton("C", AlignmentDirectional.center, false),
-            _buildGravityButton("CE", AlignmentDirectional.centerEnd, false),
-            _buildGravityButton("BE", AlignmentDirectional.bottomStart, false),
-            _buildGravityButton("BC", AlignmentDirectional.bottomCenter, false),
-            _buildGravityButton("BE", AlignmentDirectional.bottomEnd, false),
-          ],
-        ),
-        Divider(
-          color: Colors.white,
-        ),
-        Padding(
-          padding: EdgeInsets.all(4.0),
-          child: Text(
-            "Layout Gravity",
-            style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
+        //TODO:Create vertical divider
+        Expanded(
+          flex: 5,
+          child: Column(
+            children: <Widget>[
+              _buildTitleWidget("android:layout_gravity"),
+              _buildGridView(true)
+            ],
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildGravityButton("TS", AlignmentDirectional.topStart, true),
-            _buildGravityButton("TC", AlignmentDirectional.topCenter, true),
-            _buildGravityButton("TE", AlignmentDirectional.topEnd, true),
-            _buildGravityButton("CS", AlignmentDirectional.centerStart, true),
-            _buildGravityButton("C", AlignmentDirectional.center, true),
-            _buildGravityButton("CE", AlignmentDirectional.centerEnd, true),
-            _buildGravityButton("BE", AlignmentDirectional.bottomStart, true),
-            _buildGravityButton("BC", AlignmentDirectional.bottomCenter, true),
-            _buildGravityButton("BE", AlignmentDirectional.bottomEnd, true),
-          ],
-        ),
+        )
       ],
     );
+  }
+
+  Padding _buildTitleWidget(String text) {
+    return Padding(
+      padding: EdgeInsets.all(widget.titlePadding),
+      child: Text(
+        text,
+        style: TextStyle(
+            fontSize: widget.titleFontSize,
+            fontWeight: FontWeight.bold,
+            color: Colors.white),
+      ),
+    );
+  }
+
+  GridView _buildGridView(bool isAligned) {
+    return GridView
+        .count(shrinkWrap: true, crossAxisCount: widget.spanCount, children: [
+      _buildGravityButton("TS", AlignmentDirectional.topStart, isAligned),
+      _buildGravityButton("TC", AlignmentDirectional.topCenter, isAligned),
+      _buildGravityButton("TE", AlignmentDirectional.topEnd, isAligned),
+      _buildGravityButton("CS", AlignmentDirectional.centerStart, isAligned),
+      _buildGravityButton("C", AlignmentDirectional.center, isAligned),
+      _buildGravityButton("CE", AlignmentDirectional.centerEnd, isAligned),
+      _buildGravityButton("BS", AlignmentDirectional.bottomStart, isAligned),
+      _buildGravityButton("BC", AlignmentDirectional.bottomCenter, isAligned),
+      _buildGravityButton("BE", AlignmentDirectional.bottomEnd, isAligned),
+    ]);
   }
 
   Widget _buildGravityButton(
@@ -78,17 +78,24 @@ class _FrameAttributeControllerWidgetState
     return GestureDetector(
         onTap: () {
           setState(() {
-            _alignmentGeometry = gravity;
+            if (isAligned) {
+              _alignmentGravityLayout = gravity;
+            } else {
+              _alignmentGravity = gravity;
+            }
           });
           widget.frameAttributeSelection(gravity, isAligned);
         },
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(4.0),
           child: Text(
             buttonText,
             style: TextStyle(
-              color:
-                  _alignmentGeometry == gravity ? Colors.white : Colors.black,
+              color: isAligned
+                  ? _alignmentGravityLayout == gravity
+                      ? Colors.white
+                      : Colors.black
+                  : _alignmentGravity == gravity ? Colors.white : Colors.black,
             ),
           ),
         ));

@@ -6,9 +6,21 @@ void main() => runApp(new MyApp());
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => new _MyAppState();
+//  _MyTestAppState createState() => new _MyTestAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      theme: new ThemeData(accentColor: Colors.pinkAccent),
+      debugShowCheckedModeBanner: false,
+      home: new HomeScreen(),
+    );
+  }
+}
+
+class _MyTestAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

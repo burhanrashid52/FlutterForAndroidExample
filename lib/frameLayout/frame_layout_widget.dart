@@ -26,7 +26,7 @@ class _FrameLayoutScreenState extends State<FrameLayoutScreen> {
                   });
                 },
               ),
-              preferredSize: new Size(0.0, 150.0)),
+              preferredSize: new Size(0.0, 210.0)),
         ),
         body: Container(
           color: Colors.grey,
