@@ -17,7 +17,8 @@ class _MyAppState extends State<MyApp> {
           title: new Text("FrameLayout"),
         ),
         body: new Container(
-          color: Colors.yellowAccent,
+          constraints: new BoxConstraints.expand(),
+          color: Colors.tealAccent,
           child: new Stack(
             alignment: AlignmentDirectional.center,
             children: [
