@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FrameAttributeControllerWidget extends StatefulWidget {
+class FrameAttributeControllerWidget extends StatefulWidget
+    implements PreferredSizeWidget {
   final FrameAttributeSelection frameAttributeSelection;
   final int spanCount = 3;
   final double titlePadding = 12.0;
@@ -11,6 +12,9 @@ class FrameAttributeControllerWidget extends StatefulWidget {
   @override
   _FrameAttributeControllerWidgetState createState() =>
       _FrameAttributeControllerWidgetState();
+
+  @override
+  Size get preferredSize => new Size(double.infinity, 220.0);
 }
 
 class _FrameAttributeControllerWidgetState
@@ -20,28 +24,31 @@ class _FrameAttributeControllerWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          flex: 5,
-          child: Column(
-            children: <Widget>[
-              _buildTitleWidget("android:gravity"),
-              _buildGridView(false)
-            ],
+    return Container(
+      height: 220.0,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 5,
+            child: Column(
+              children: <Widget>[
+                _buildTitleWidget("android:gravity"),
+                _buildGridView(false)
+              ],
+            ),
           ),
-        ),
-        //TODO:Create vertical divider
-        Expanded(
-          flex: 5,
-          child: Column(
-            children: <Widget>[
-              _buildTitleWidget("android:layout_gravity"),
-              _buildGridView(true)
-            ],
-          ),
-        )
-      ],
+          Container(width: 1.0, color: Colors.red),
+          Expanded(
+            flex: 5,
+            child: Column(
+              children: <Widget>[
+                _buildTitleWidget("android:layout_gravity"),
+                _buildGridView(true)
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 

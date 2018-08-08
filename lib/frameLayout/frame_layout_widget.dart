@@ -16,17 +16,15 @@ class _FrameLayoutScreenState extends State<FrameLayoutScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text("FrameLayout"),
-          bottom: PreferredSize(
-              child: FrameAttributeControllerWidget(
-                frameAttributeSelection:
-                    (AlignmentGeometry direction, bool isAligned) {
-                  setState(() {
-                    widget.alignmentGeometry = direction;
-                    widget.isAligned = isAligned;
-                  });
-                },
-              ),
-              preferredSize: new Size(0.0, 210.0)),
+          bottom: FrameAttributeControllerWidget(
+            frameAttributeSelection:
+                (AlignmentGeometry direction, bool isAligned) {
+              setState(() {
+                widget.alignmentGeometry = direction;
+                widget.isAligned = isAligned;
+              });
+            },
+          ),
         ),
         body: Container(
           color: Colors.grey,
