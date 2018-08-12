@@ -14,7 +14,7 @@ class FrameAttributeControllerWidget extends StatefulWidget
       _FrameAttributeControllerWidgetState();
 
   @override
-  Size get preferredSize => new Size(double.infinity, 220.0);
+  Size get preferredSize => new Size(double.infinity, 200.0);
 }
 
 class _FrameAttributeControllerWidgetState
@@ -25,7 +25,7 @@ class _FrameAttributeControllerWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 220.0,
+      height: 200.0,
       child: Row(
         children: <Widget>[
           Expanded(
@@ -33,17 +33,16 @@ class _FrameAttributeControllerWidgetState
             child: Column(
               children: <Widget>[
                 _buildTitleWidget("android:gravity"),
-                _buildGridView(false)
+                _buildTable(false)
               ],
             ),
           ),
-          Container(width: 1.0, color: Colors.red),
           Expanded(
             flex: 5,
             child: Column(
               children: <Widget>[
                 _buildTitleWidget("android:layout_gravity"),
-                _buildGridView(true)
+                _buildTable(true)
               ],
             ),
           )
@@ -55,29 +54,50 @@ class _FrameAttributeControllerWidgetState
   Padding _buildTitleWidget(String text) {
     return Padding(
       padding: EdgeInsets.all(widget.titlePadding),
-      child: Text(
-        text,
-        style: TextStyle(
-            fontSize: widget.titleFontSize,
-            fontWeight: FontWeight.bold,
-            color: Colors.white),
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(
+              fontSize: widget.titleFontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
+        ),
       ),
     );
   }
 
-  GridView _buildGridView(bool isAligned) {
-    return GridView
-        .count(shrinkWrap: true, crossAxisCount: widget.spanCount, children: [
-      _buildGravityButton("TS", AlignmentDirectional.topStart, isAligned),
-      _buildGravityButton("TC", AlignmentDirectional.topCenter, isAligned),
-      _buildGravityButton("TE", AlignmentDirectional.topEnd, isAligned),
-      _buildGravityButton("CS", AlignmentDirectional.centerStart, isAligned),
-      _buildGravityButton("C", AlignmentDirectional.center, isAligned),
-      _buildGravityButton("CE", AlignmentDirectional.centerEnd, isAligned),
-      _buildGravityButton("BS", AlignmentDirectional.bottomStart, isAligned),
-      _buildGravityButton("BC", AlignmentDirectional.bottomCenter, isAligned),
-      _buildGravityButton("BE", AlignmentDirectional.bottomEnd, isAligned),
-    ]);
+  Table _buildTable(bool isAligned) {
+    return Table(
+      children: [
+        TableRow(
+          children: [
+            _buildGravityButton("TS", AlignmentDirectional.topStart, isAligned),
+            _buildGravityButton(
+                "TC", AlignmentDirectional.topCenter, isAligned),
+            _buildGravityButton("TE", AlignmentDirectional.topEnd, isAligned),
+          ],
+        ),
+        TableRow(
+          children: [
+            _buildGravityButton(
+                "CS", AlignmentDirectional.centerStart, isAligned),
+            _buildGravityButton("C", AlignmentDirectional.center, isAligned),
+            _buildGravityButton(
+                "CE", AlignmentDirectional.centerEnd, isAligned),
+          ],
+        ),
+        TableRow(
+          children: [
+            _buildGravityButton(
+                "BS", AlignmentDirectional.bottomStart, isAligned),
+            _buildGravityButton(
+                "BC", AlignmentDirectional.bottomCenter, isAligned),
+            _buildGravityButton(
+                "BE", AlignmentDirectional.bottomEnd, isAligned),
+          ],
+        )
+      ],
+    );
   }
 
   Widget _buildGravityButton(
@@ -94,15 +114,22 @@ class _FrameAttributeControllerWidgetState
           widget.frameAttributeSelection(gravity, isAligned);
         },
         child: Padding(
-          padding: EdgeInsets.all(4.0),
-          child: Text(
-            buttonText,
-            style: TextStyle(
-              color: isAligned
-                  ? _alignmentGravityLayout == gravity
-                      ? Colors.white
-                      : Colors.black
-                  : _alignmentGravity == gravity ? Colors.white : Colors.black,
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            margin: const EdgeInsets.all(4.0),
+            child: Center(
+              child: Text(
+                buttonText,
+                style: TextStyle(
+                  color: isAligned
+                      ? _alignmentGravityLayout == gravity
+                          ? Colors.white
+                          : Colors.black
+                      : _alignmentGravity == gravity
+                          ? Colors.white
+                          : Colors.black,
+                ),
+              ),
             ),
           ),
         ));

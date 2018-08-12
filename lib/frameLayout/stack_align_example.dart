@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class StackWidgets extends StatelessWidget {
   final AlignmentGeometry alignmentGeometry;
+
   StackWidgets(this.alignmentGeometry);
 
   @override
@@ -34,6 +35,7 @@ Widget _buildBoxContainer(Color bgColor, double size, String text) {
 
 class StackAlignWidgets extends StatelessWidget {
   final AlignmentGeometry alignmentGeometry;
+
   StackAlignWidgets(this.alignmentGeometry);
 
   @override
@@ -56,6 +58,36 @@ class StackAlignWidgets extends StatelessWidget {
           alignment: AlignmentDirectional.bottomEnd,
           child: _buildBoxContainer(Colors.orange, 50.0, "4"),
         )
+      ],
+    );
+  }
+}
+
+class PositionedWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Positioned(
+          child: _buildBoxContainer(Colors.red, 200.0, "1"),
+          top: 10.0,
+          left: 10.0,
+        ),
+        Positioned(
+          child: _buildBoxContainer(Colors.blue, 150.0, "2"),
+          top: 30.0,
+          right: 50.0,
+        ),
+        Positioned(
+          child: _buildBoxContainer(Colors.green, 100.0, "3"),
+          bottom: 100.0,
+          left: 30.0,
+        ),
+        Positioned(
+          child: _buildBoxContainer(Colors.orange, 50.0, "4"),
+          bottom: 50.0,
+          right: 100.0,
+        ),
       ],
     );
   }

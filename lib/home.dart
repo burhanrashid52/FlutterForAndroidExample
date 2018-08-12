@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
                 color: Theme.of(context).accentColor,
-                child: new Text("Activity UI",
+                child: new Text("Activity",
                     style: new TextStyle(color: Colors.white)),
               ),
             ),
