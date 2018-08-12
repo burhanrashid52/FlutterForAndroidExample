@@ -32,7 +32,7 @@ class _FrameAttributeControllerWidgetState
             flex: 5,
             child: Column(
               children: <Widget>[
-                _buildTitleWidget("android:gravity"),
+                _buildTitleWidget("android:gravity\n(Stack)"),
                 _buildTable(false)
               ],
             ),
@@ -41,7 +41,7 @@ class _FrameAttributeControllerWidgetState
             flex: 5,
             child: Column(
               children: <Widget>[
-                _buildTitleWidget("android:layout_gravity"),
+                _buildTitleWidget("android:layout_gravity\n(Align)"),
                 _buildTable(true)
               ],
             ),
@@ -58,9 +58,11 @@ class _FrameAttributeControllerWidgetState
         child: Text(
           text,
           style: TextStyle(
-              fontSize: widget.titleFontSize,
-              fontWeight: FontWeight.bold,
-              color: Colors.white),
+            fontSize: widget.titleFontSize,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+          textAlign: TextAlign.center,
         ),
       ),
     );
