@@ -16,6 +16,13 @@ This is sample app for my blog series "Flutter For Android Developer" for Androi
 ![](https://i.imgur.com/5vF2Fia.gif)
 
 
+
+
+3. [How to design FrameLayout in Flutter ?](https://medium.com/@burhanrashid52/flutter-for-android-developers-how-to-design-framelayout-in-flutter-93a19fc7e7a6)
+
+![](https://i.imgur.com/ogrN3Qj.gif)
+
+
 ## Questions?🤔
 Hit me on twitter [![Twitter](https://img.shields.io/badge/Twitter-%40burhanrashid52-blue.svg)](https://twitter.com/burhanrashid52)
 [![Medium](https://img.shields.io/badge/Medium-%40burhanrashid52-brightgreen.svg)](https://medium.com/@burhanrashid52)
