@@ -1,4 +1,5 @@
 # Flutter For Android Developers
+[![Codemagic build status](https://api.codemagic.io/apps/5d43dd249585dc000d6ae180/5d43dd249585dc000d6ae17f/status_badge.svg)](https://codemagic.io/apps/5d43dd249585dc000d6ae180/5d43dd249585dc000d6ae17f/latest_build)
 
 This is sample app for my blog series "Flutter For Android Developer" for Android developers who are looking to apply their existing Android knowledge to build mobile apps with Flutter.For more details you can read my blog on meduim
 
@@ -31,7 +32,7 @@ Hit me on twitter [![Twitter](https://img.shields.io/badge/Twitter-%40burhanrash
 
 ## MIT License
 
-Copyright (c) 2018 Burhanuddin Rashid
+Copyright (c) 2020 Burhanuddin Rashid
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
